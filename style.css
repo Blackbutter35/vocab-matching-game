@@ -1,0 +1,343 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF8E1;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #FFF8E1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    background-color: #333;
+    padding: 10px 20px;
+    text-align: left; /* ปรับให้ชิดซ้าย */
+}
+
+.footer {
+    background-color: #FFB6C1;
+    color: FFB6C1;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto; /* สิ่งสำคัญที่ทำให้ footer ติดที่ด้านล่าง */
+}
+
+.menu {
+    color: white;
+    padding: 10px 15px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.main-section {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: #FFF3E0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-section {
+    text-align: center;
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 400px; /* ขนาดสูงสุด */
+    background-color: #FFF3E0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#profile-section {
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างโปรไฟล์กับเกม */
+    width: 100%; /* ทำให้กว้าง 100% */
+}
+
+.profile-bar {
+    display: flex;
+    align-items: center; /* จัดให้อยู่กลางในแนวนอน */
+    background-color: #FFF3E0; /* สีพื้นหลัง */
+    padding: 15px; /* การ padding */
+    border-radius: 0px; /* มุมมน */
+    width: calc(100% - 20px); /* ทำให้กรอบยาวเต็มความกว้าง */
+    position: fixed; /* ทำให้กรอบอยู่ที่ด้านบน */
+    top: 0; /* ชิดด้านบน */
+    left: 0; /* ชิดด้านซ้าย */
+    margin: 0; /* ลบ margin */
+    z-index: 1000; /* ให้แน่ใจว่ามันอยู่เหนือเนื้อหาอื่น */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+.profile-info {
+    display: flex; /* ใช้ flex เพื่อจัดให้อยู่ในแนวนอน */
+    justify-content: space-between; /* ให้ช่องข้อมูลอยู่ห่างกัน */
+    align-items: center; /* จัดให้อยู่กลางในแนวนอน */
+    text-align: left; /* จัดข้อความไปทางซ้าย */
+}
+
+.profile-info p {
+    margin: 0 15px; /* ระยะห่างระหว่างข้อมูล */
+    white-space: nowrap; /* ไม่ให้ข้อมูลขึ้นบรรทัดใหม่ */
+}
+
+.profile-info h1 {
+    margin: 0 20px 0 0; /* ระยะห่างจาก "โปรไฟล์" */
+}
+
+
+.logout-container {
+    margin-left: auto; /* ขยับไปทางขวาสุด */
+}
+
+
+
+h1 {
+    font-size: 2em;
+    color: #FFB6C1;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+}
+
+.btn-main, .btn-danger {
+    background-color: #FFD1DC;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+}
+
+.btn-main:hover, .btn-danger:hover {
+    background-color: #FF69B4;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.item {
+    background-color: #ffdab9;
+    border: 2px solid #ff8c00;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.item:hover {
+    background-color: #ff4500; /* สีส้มเข้มเมื่อ hover */
+    transform: scale(1.1); /* ขยายเล็กน้อยเมื่อ hover */
+}
+
+.matched {
+    background-color: #C8E6C9 !important;
+    border: 2px solid #A5D6A7 !important;
+}
+
+.item.disabled {
+    pointer-events: none; 
+    background-color: #e9ecef; 
+    color: #6c757d; 
+}
+
+.hidden {
+    display: none;
+}
+
+#game-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* จัด 5 คำต่อแถว */
+    grid-template-rows: repeat(2, auto);  /* 2 แถว */
+    gap: 10px; /* ระยะห่างระหว่าง item */
+}
+
+.badge-container {
+    display: flex;
+    justify-content: center; /* จัดกลางเหรียญตรา */
+    flex-wrap: wrap; /* ให้เหรียญตราเรียงต่อกัน */
+    gap: 10px; /* ระยะห่างระหว่างเหรียญตรา */
+}
+
+
+.badge {
+    background-color: #FFECB3;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.badge img {
+    animation: spin 1s ease-in-out;
+    max-width: 45px;
+    border-radius: 50%;
+}
+
+.badge span {
+    display: block;
+    margin-top: 5px;
+}
+
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* แถวละ 3 กรอบ */
+    gap: 10px; /* ระยะห่างระหว่างกรอบ */
+    margin-top: 20px; /* ระยะห่างด้านบน */
+}
+
+.review-box {
+    background-color: #FFF3E0; /* สีพื้นหลัง */
+    border-radius: 10px; /* มุมมน */
+    padding: 15px; /* การ padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงา */
+    text-align: center; /* จัดให้อยู่กลาง */
+}
+
+.word-box {
+    background-color: #FFF3E0; /* สีพื้นหลังของกรอบ */
+    border: 1px solid #FFB6C1; /* สีกรอบ */
+    border-radius: 8px; /* มุมมน */
+    padding: 20px;
+    margin: 10px; /* ระยะห่างระหว่างกรอบ */
+    flex: 0 0 30%; /* ความกว้าง 30% ของกรอบ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงา */
+    text-align: left; /* ข้อความชิดซ้าย */
+}
+
+.question-box {
+    background-color: #FFB6C1; /* สีพื้นหลังกรอบใหญ่ */
+    border: 1px solid #de6688; /* ขอบ */
+    border-radius: 10px; /* มุมมน */
+    padding: 10px; /* การ padding */
+    margin: 10px 0; /* ระยะห่างด้านบนและล่าง */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+.level-review h3 {
+    margin: 0; /* ลบ margin ของ h3 */
+}
+
+
+.level-review {
+    text-align: center; /* จัดให้อยู่กลาง */
+    margin-bottom: 10px; /* ระยะห่างด้านล่าง */
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#review-section {
+    display: none; /* ซ่อนหน้าทบทวนคำศัพท์ */
+}
+
+
+#profile-section, #game-section {
+    text-align: center;
+    flex-direction: column; /* วางเนื้อหาในแนวตั้ง */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวนอน */
+    justify-content: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    margin: 0 auto; /* ทำให้ส่วนนี้อยู่ตรงกลางของหน้า */
+}
+
+#profile-section {
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างโปรไฟล์กับเกม */
+    width: 500px; /* ปรับขนาดความกว้างของโปรไฟล์ */
+}
+
+#profile-section p {
+    font-size: 18px; /* ขนาดตัวอักษรใหญ่ขึ้น */
+    margin-bottom: 10px; /* ระยะห่างระหว่างข้อความ */
+}
+
+.popup {
+    display: none; /* เริ่มต้นด้วยการซ่อน */
+    position: fixed; /* อยู่ที่ตำแหน่งคงที่ */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* ตรงกลางจอ */
+    background-color: white;
+    border: 2px solid #FFB6C1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* อยู่เหนือเนื้อหาอื่น */
+    text-align: center; /* จัดข้อความกลาง */
+}
+
+.popup h2 {
+    font-size: 1.5em;
+    color: #ff69b4; /* สีชมพูสด */
+}
+
+.popup img {
+    width: 50px; /* ขนาดภาพเหรียญตรา */
+    margin-bottom: 10px;
+}
+
+.popup .close-btn {
+    background-color: #FF69B4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+}
+
+.popup .close-btn:hover {
+    background-color: #ff1a5b;
+}
+
+#end-game-popup {
+    display: none; /* ซ่อนป๊อปอัพเริ่มต้น */
+    position: fixed; /* ตำแหน่งคงที่ */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* ตรงกลางจอ */
+    background-color: white;
+    border: 2px solid #FFB6C1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* อยู่เหนือเนื้อหาอื่น */
+}

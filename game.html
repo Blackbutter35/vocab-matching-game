@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top">
+        <div1>
+            <a class="menu brand" href="game.html">My lil Cat</a>
+            <a class="menu" href="game.html">Game</a>
+        </div1>
+    </header>
+
+
+    <section id="start-section" class="login-section">
+        <h1>จับคู่คำศัพท์ภาษาอังกฤษ</h1>
+        <input type="text" id="username-input" placeholder="กรอกชื่อผู้ใช้">
+        <button id="start-button" class="btn-main">เริ่มเกม</button>
+        <audio id="login-music" src="sounds/login-music.wav" preload="auto"></audio>
+    </section>
+
+    <section id="profile-section" class="header">
+        <div class="profile-bar">
+            <div class="profile-info">
+                <h1>Profile</h1>
+                <p>ชื่อผู้ใช้ <span id="profile-username"></span></p>
+                <p>คะแนนรวม <span id="profile-total-score">0</span></p>        
+                <p>ด่านที่ผ่าน <span id="profile-level"></span></p>
+                <div id="profile-badges" class="badge-container"></div>
+            </div>
+            <div class="logout-container"> <!-- เพิ่ม div ใหม่ -->
+                <button id="logout-button" class="btn-danger">ออกจากระบบ</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="reward-popup" class="popup" style="display:none;">
+        <div class="popup-content">
+            <h2>คุณได้รับเหรียญตรา!</h2>
+            <img id="badge-image" src="" alt="Badge" style="width: 50px; margin-bottom: 10px;" />
+            <p id="badge-text"></p>
+            <span class="close-btn" id="close-popup">&times;</span>
+        </div>
+    </div>
+
+    <section id="game-section" class="hidden main-section">
+        <h1>เกมจับคู่คำศัพท์ภาษาอังกฤษ</h1>
+        <p>ชื่อผู้ใช้: <span id="game-username"></span></p>
+        <p><span id="score">คะแนน: 0</span></p>
+        <p id="level">ด่าน: 1</p>
+        <div id="game-container" class="game-board"></div>
+        <audio id="game-music" src="sounds/game-music.wav" preload="auto"></audio>
+    </section>
+
+    <div id="review-popup" class="popup" style="display:none;">
+        <div class="popup-content">
+            <h2>ไปยังหน้าทบทวนคำศัพท์</h2>
+            <p>คุณต้องการไปยังหน้าทบทวนคำศัพท์หรือไม่?</p>
+            <button id="go-to-review" class="btn-main">ไปทบทวนคำศัพท์</button>
+            <span class="close-btn" id="close-review-popup">&times;</span>
+        </div>
+    </div>
+    
+
+    <section id="review-section" class="hidden">
+        <h2>ทบทวนคำศัพท์</h2>
+        <div class="review-container">
+            <div class="word-box">คำศัพท์ 1</div>
+            <div class="word-box">คำศัพท์ 2</div>
+            <div class="word-box">คำศัพท์ 3</div>
+            <div class="word-box">คำศัพท์ 4</div>
+            <div class="word-box">คำศัพท์ 5</div>
+            <div class="word-box">คำศัพท์ 6</div>
+            <div class="word-box">คำศัพท์ 7</div>
+            <div class="word-box">คำศัพท์ 8</div>
+            <div class="word-box">คำศัพท์ 9</div>
+            <div class="word-box">คำศัพท์ 10</div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+   
+    <footer class="footer">
+        <p>About this website</p>
+        <p>Copyright 2025</p>
+    </footer>
+</body>
+</html>
