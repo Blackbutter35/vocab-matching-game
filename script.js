@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 correctSound.play();
                 firstSelection.classList.add('matched', 'disabled');
                 secondSelection.classList.add('matched', 'disabled');
-                score += 10;
+                score += 1;
                 document.getElementById('score').textContent = `คะแนน: ${score}`;
 
                 firstSelection = null;
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } else {
                 wrongSound.play();
-                score -= 5;
+                score -= 1;
                 document.getElementById('score').textContent = `คะแนน: ${score}`;
                 firstSelection.style.backgroundColor = '#f8d7da';
                 secondSelection.style.backgroundColor = '#f8d7da';
