@@ -1,77 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
     const levels = [
+        // การเขียนโปรแกรม (4 ด่าน)
         [
-            { word: "dog", meaning: "หมา" },
-            { word: "cat", meaning: "แมว" },
-            { word: "apple", meaning: "แอปเปิ้ล" },
-            { word: "banana", meaning: "กล้วย" },
-            { word: "grape", meaning: "องุ่น" }
+            { word: "Variable", meaning: "ตัวแปร", example: "A variable stores a value that can change during execution.", translation: "ตัวแปรใช้เก็บค่าที่สามารถเปลี่ยนแปลงได้ในระหว่างการทำงานของโปรแกรม" },
+            { word: "Function", meaning: "ฟังก์ชัน", example: "A function groups a block of reusable code together.", translation: "ฟังก์ชันใช้รวมบล็อกของโค้ดที่สามารถนำมาใช้ซ้ำได้" },
+            { word: "Loop", meaning: "ลูป", example: "Loops allow a program to repeat a block of code multiple times.", translation: "ลูปช่วยให้โปรแกรมทำซ้ำบล็อกของโค้ดหลายครั้ง" },
+            { word: "Array", meaning: "อาเรย์", example: "An array is a collection of elements stored in a single variable.", translation: "อาเรย์คือชุดของค่าที่เก็บในตัวแปรเดียว" },
+            { word: "Condition", meaning: "เงื่อนไข", example: "Conditional statements execute code based on a condition.", translation: "คำสั่งเงื่อนไขทำให้โค้ดทำงานตามเงื่อนไขที่กำหนด" }
         ],
         [
-            { word: "strawberry", meaning: "สตรอเบอร์รี่" },
-            { word: "orange", meaning: "ส้ม" },
-            { word: "watermelon", meaning: "แตงโม" },
-            { word: "lemon", meaning: "มะนาว" },
-            { word: "pineapple", meaning: "สับปะรด" }
+            { word: "Object-Oriented", meaning: "เชิงวัตถุ", example: "Object-oriented programming organizes code into reusable objects.", translation: "การเขียนโปรแกรมเชิงวัตถุช่วยจัดระเบียบโค้ดให้เป็นออบเจ็กต์ที่นำกลับมาใช้ใหม่ได้" },
+            { word: "Class", meaning: "คลาส", example: "A class is a blueprint for creating objects in OOP.", translation: "คลาสเป็นแม่แบบสำหรับสร้างออบเจ็กต์ใน OOP" },
+            { word: "Method", meaning: "เมธอด", example: "A method defines a function inside a class.", translation: "เมธอดคือนิยามของฟังก์ชันภายในคลาส" },
+            { word: "Inheritance", meaning: "การสืบทอด", example: "Inheritance allows a class to acquire properties from another class.", translation: "การสืบทอดช่วยให้คลาสได้รับคุณสมบัติจากคลาสอื่น" },
+            { word: "Encapsulation", meaning: "การห่อหุ้ม", example: "Encapsulation hides the internal details of an object.", translation: "การห่อหุ้มช่วยซ่อนรายละเอียดภายในของออบเจ็กต์" }
         ],
         [
-            { word: "elephant", meaning: "ช้าง" },
-            { word: "tiger", meaning: "เสือ" },
-            { word: "giraffe", meaning: "ยีราฟ" },
-            { word: "lion", meaning: "สิงโต" },
-            { word: "zebra", meaning: "ม้าลาย" }
+            { word: "Debugging", meaning: "การดีบัก", example: "Debugging is the process of finding and fixing errors in code.", translation: "การดีบักคือกระบวนการค้นหาและแก้ไขข้อผิดพลาดในโค้ด" },
+            { word: "Algorithm", meaning: "อัลกอริทึม", example: "An algorithm is a set of steps to solve a problem.", translation: "อัลกอริทึมคือชุดของขั้นตอนในการแก้ปัญหา" },
+            { word: "Framework", meaning: "เฟรมเวิร์ก", example: "A framework provides a foundation for developing applications.", translation: "เฟรมเวิร์กเป็นโครงสร้างพื้นฐานสำหรับพัฒนาแอปพลิเคชัน" },
+            { word: "Library", meaning: "ไลบรารี", example: "A library contains reusable pieces of code.", translation: "ไลบรารีมีโค้ดที่สามารถนำกลับมาใช้ซ้ำได้" },
+            { word: "IDE", meaning: "สภาพแวดล้อมพัฒนาโปรแกรม", example: "An IDE helps developers write and test code efficiently.", translation: "IDE ช่วยให้นักพัฒนาเขียนและทดสอบโค้ดได้อย่างมีประสิทธิภาพ" }
         ],
         [
-            { word: "monkey", meaning: "ลิง" },
-            { word: "crocodile", meaning: "จระเข้" },
-            { word: "snake", meaning: "งู" },
-            { word: "frog", meaning: "กบ" },
-            { word: "hippopotamus", meaning: "ฮิปโปโปเตมัส" }
+            { word: "Version Control", meaning: "การควบคุมเวอร์ชัน", example: "Version control helps track changes in code over time.", translation: "การควบคุมเวอร์ชันช่วยติดตามการเปลี่ยนแปลงของโค้ดเมื่อเวลาผ่านไป" },
+            { word: "Git", meaning: "กิต", example: "Git is a popular version control system.", translation: "Git เป็นระบบควบคุมเวอร์ชันที่ได้รับความนิยม" },
+            { word: "Branch", meaning: "กิ่งใน Git", example: "A branch allows multiple people to work on different parts of a project.", translation: "กิ่งใน Git ช่วยให้หลายคนสามารถทำงานในส่วนต่าง ๆ ของโปรเจ็กต์พร้อมกันได้" },
+            { word: "Merge", meaning: "การรวมโค้ด", example: "Merging combines changes from different branches.", translation: "การรวมโค้ดช่วยผสานการเปลี่ยนแปลงจากกิ่งต่าง ๆ" },
+            { word: "Commit", meaning: "คอมมิต", example: "A commit records changes to the repository.", translation: "คอมมิตคือการบันทึกการเปลี่ยนแปลงลงในรีโพซิทอรี" }
         ],
         [
-            { word: "car", meaning: "รถ" },
-            { word: "bus", meaning: "รถบัส" },
-            { word: "train", meaning: "รถไฟ" },
-            { word: "bicycle", meaning: "จักรยาน" },
-            { word: "motorcycle", meaning: "มอเตอร์ไซค์" }
+            { word: "Frontend", meaning: "ส่วนหน้าเว็บ", example: "The frontend is what users interact with on a website.", translation: "ส่วนหน้าเว็บคือสิ่งที่ผู้ใช้โต้ตอบด้วยบนเว็บไซต์" },
+            { word: "Backend", meaning: "ส่วนหลังเว็บ", example: "The backend handles server-side logic and databases.", translation: "ส่วนหลังเว็บจัดการตรรกะฝั่งเซิร์ฟเวอร์และฐานข้อมูล" },
+            { word: "Full Stack", meaning: "ฟูลสแต็ก", example: "A full stack developer works on both frontend and backend.", translation: "นักพัฒนาฟูลสแต็กทำงานทั้งฝั่งหน้าเว็บและฝั่งหลังเว็บ" },
+            { word: "API", meaning: "อินเตอร์เฟซโปรแกรม", example: "APIs allow different applications to communicate.", translation: "API ช่วยให้แอปพลิเคชันต่าง ๆ สามารถสื่อสารกันได้" },
+            { word: "Wireframe", meaning: "โครงร่างเว็บไซต์", example: "A wireframe is a visual guide for website structure.", translation: "โครงร่างเว็บไซต์เป็นแนวทางการออกแบบโครงสร้างของเว็บไซต์" }
         ],
         [
-            { word: "airplane", meaning: "เครื่องบิน" },
-            { word: "boat", meaning: "เรือ" },
-            { word: "ship", meaning: "เรือเดินสมุทร" },
-            { word: "helicopter", meaning: "เฮลิคอปเตอร์" },
-            { word: "truck", meaning: "รถบรรทุก" }
+            { word: "UX", meaning: "ประสบการณ์ผู้ใช้", example: "Good UX makes websites easier to navigate.", translation: "UX ที่ดีทำให้เว็บไซต์ใช้งานง่ายขึ้น" },
+            { word: "UI", meaning: "ส่วนติดต่อผู้ใช้", example: "UI design focuses on the look and feel of a website.", translation: "การออกแบบ UI เน้นที่รูปลักษณ์และประสบการณ์ของเว็บไซต์" },
+            { word: "Grid System", meaning: "ระบบกริด", example: "A grid system helps arrange website content systematically.", translation: "ระบบกริดช่วยจัดเรียงเนื้อหาในเว็บไซต์อย่างเป็นระบบ" },
+            { word: "Media Query", meaning: "การปรับแต่งเว็บไซต์ตามขนาดหน้าจอ", example: "Media queries make websites responsive.", translation: "Media query ช่วยให้เว็บไซต์ตอบสนองต่อขนาดหน้าจอที่แตกต่างกัน" },
+            { word: "Lazy Loading", meaning: "การโหลดแบบขี้เกียจ", example: "Lazy loading delays loading images until needed.", translation: "การโหลดแบบขี้เกียจช่วยชะลอการโหลดภาพจนกว่าจะจำเป็น" }
         ],
         [
-            { word: "table", meaning: "โต๊ะ" },
-            { word: "chair", meaning: "เก้าอี้" },
-            { word: "bed", meaning: "เตียง" },
-            { word: "sofa", meaning: "โซฟา" },
-            { word: "cupboard", meaning: "ตู้เก็บของ" }
+            { word: "CDN", meaning: "เครือข่ายส่งเนื้อหา", example: "CDNs improve website speed by caching content globally.", translation: "CDN ช่วยเพิ่มความเร็วของเว็บไซต์โดยการเก็บข้อมูลแคชทั่วโลก" },
+            { word: "SSL", meaning: "ใบรับรองความปลอดภัย", example: "SSL certificates encrypt data between users and servers.", translation: "ใบรับรอง SSL เข้ารหัสข้อมูลระหว่างผู้ใช้และเซิร์ฟเวอร์" },
+            { word: "Caching", meaning: "การแคช", example: "Caching stores website data temporarily for faster loading.", translation: "การแคชช่วยเก็บข้อมูลเว็บไซต์ชั่วคราวเพื่อให้โหลดเร็วขึ้น" },
+            { word: "Web Accessibility", meaning: "การเข้าถึงเว็บ", example: "Web accessibility ensures websites are usable by everyone.", translation: "การเข้าถึงเว็บช่วยให้ทุกคนสามารถใช้งานเว็บไซต์ได้" },
+            { word: "Deployment", meaning: "การเผยแพร่เว็บไซต์", example: "Deployment is the process of making a website live.", translation: "การเผยแพร่เว็บไซต์คือกระบวนการนำเว็บไซต์ขึ้นออนไลน์" }
         ],
         [
-            { word: "shelf", meaning: "ชั้นวางของ" },
-            { word: "lamp", meaning: "โคมไฟ" },
-            { word: "window", meaning: "หน้าต่าง" },
-            { word: "door", meaning: "ประตู" },
-            { word: "mirror", meaning: "กระจก" }
-        ],
-        [
-            { word: "sun", meaning: "ดวงอาทิตย์" },
-            { word: "moon", meaning: "ดวงจันทร์" },
-            { word: "star", meaning: "ดวงดาว" },
-            { word: "planet", meaning: "ดาวเคราะห์" },
-            { word: "galaxy", meaning: "กาแล็กซี" }
-        ],
-        [
-            { word: "comet", meaning: "ดาวหาง" },
-            { word: "asteroid", meaning: "ดาวเคราะห์น้อย" },
-            { word: "black hole", meaning: "หลุมดำ" },
-            { word: "universe", meaning: "จักรวาล" },
-            { word: "constellation", meaning: "กลุ่มดาว" }
+            { word: "Responsive Web Design", meaning: "การออกแบบเว็บที่ตอบสนอง", example: "Responsive design ensures a website works on all devices.", translation: "การออกแบบเว็บที่ตอบสนองช่วยให้เว็บไซต์ทำงานได้บนทุกอุปกรณ์" },
+            { word: "Progressive Web App (PWA)", meaning: "เว็บแอปที่สามารถทำงานได้เสมือนแอปมือถือ", example: "PWA combines the best features of web and mobile apps.", translation: "PWA ผสมผสานคุณสมบัติที่ดีที่สุดของเว็บและแอปมือถือ" },
+            { word: "Server-Side Rendering (SSR)", meaning: "การเรนเดอร์ฝั่งเซิร์ฟเวอร์", example: "SSR improves SEO by rendering pages on the server.", translation: "SSR ช่วยปรับปรุง SEO โดยการเรนเดอร์หน้าเว็บบนเซิร์ฟเวอร์" },
+            { word: "Headless CMS", meaning: "ระบบจัดการเนื้อหาแบบไร้ส่วนต่อประสาน", example: "A Headless CMS provides content without a fixed frontend.", translation: "Headless CMS ช่วยให้เนื้อหาถูกแสดงโดยไม่ขึ้นอยู่กับส่วนหน้าเว็บที่ตายตัว" },
+            { word: "Static Site Generator (SSG)", meaning: "เครื่องมือสร้างเว็บสถิต", example: "SSG pre-builds pages for faster performance.", translation: "SSG สร้างหน้าเว็บล่วงหน้าเพื่อให้โหลดได้เร็วขึ้น" }
         ]
-        
-
     ];
 
     const badges = [
@@ -88,6 +73,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameMusic = document.getElementById('game-music');
     const reviewSection = document.getElementById('review-section');
     reviewSection.style.display = 'none'; // ซ่อนหน้าทบทวนคำศัพท์ตอนเริ่ม
+
+    gameMusic.loop = true;
+    gameMusic.volume = 0.3;
+
+    function setGameVolume(value) {
+        gameMusic.volume = value;
+    }
+
+    function createVolumeControl() {
+        const volumeContainer = document.createElement('div');
+        volumeContainer.className = 'volume-control';
+        volumeContainer.innerHTML = `
+            <label for="volume-slider">🔊 ปรับระดับเสียง</label>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+        `;
+        
+        const gameSection = document.getElementById('game-section');
+        if (gameSection) {
+            gameSection.appendChild(volumeContainer);
+        }
+        
+        document.getElementById('volume-slider').addEventListener('input', (event) => {
+            setGameVolume(event.target.value);
+        });
+    }
     
     function stopAllMusic() {
         loginMusic.pause();
@@ -322,9 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         saveGameState(localStorage.getItem('username'), score, currentLevel);
     }
-    
-   
-    
 
     function startGame() {
         score = 0;
@@ -336,7 +343,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         loadLevel(currentLevel);
     }
-    
+
+    function speakText(text) {
+        if ('speechSynthesis' in window) {
+            let utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+        } else {
+            alert("เบราว์เซอร์ของคุณไม่รองรับการอ่านออกเสียง");
+        }
+    }
+
+    function createItemWithAudio(text, pairIndex, isEnglish) {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.textContent = text;
+        div.dataset.pair = pairIndex;
+
+        if (isEnglish) { // เพิ่มไอคอนเฉพาะคำศัพท์ภาษาอังกฤษ
+            const audioButton = document.createElement('button');
+            audioButton.className = 'audio-button';
+            audioButton.textContent = '🔊';
+            audioButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // ป้องกันการคลิกที่ไอเท็มหลัก
+                speakText(text);
+            });
+            div.appendChild(audioButton);
+        }
+        
+        div.addEventListener('click', handleItemClick);
+        return div;
+    }
 
     function loadLevel(levelIndex) {
         const levelData = levels[levelIndex];
@@ -345,8 +382,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let wordsArray = [];
         levelData.forEach((item, index) => {
-            wordsArray.push(createItem(item.word, index));
-            wordsArray.push(createItem(item.meaning, index));
+            wordsArray.push(createItemWithAudio(item.word, index, true));
+            wordsArray.push(createItemWithAudio(item.meaning, index, false));
         });
 
         wordsArray = shuffle(wordsArray);
@@ -473,32 +510,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const reviewSection = document.getElementById('review-section');
         reviewSection.style.display = 'block';
         document.getElementById('game-section').style.display = 'none';
-        document.getElementById('profile-section').style.display = 'block';
-    
+        
         const reviewContainer = document.createElement('div');
         reviewContainer.className = 'review-container';
-        reviewSection.innerHTML = ''; // เคลียร์เนื้อหาเก่า
-        reviewSection.appendChild(reviewContainer); // เพิ่ม container สำหรับกรอบ
-    
+        reviewSection.innerHTML = '';
+        reviewSection.appendChild(reviewContainer);
+
         levels.forEach((levelWords, index) => {
             const levelDiv = document.createElement('div');
             levelDiv.className = 'level-review';
             levelDiv.innerHTML = `<h3>คำศัพท์จากด่านที่ ${index + 1}</h3>`;
-            reviewContainer.appendChild(levelDiv); // เพิ่มชื่อด่านเข้าไป
-    
-            const questionBox = document.createElement('div');
-            questionBox.className = 'question-box'; // กรอบใหญ่สำหรับข้อ
-            levelDiv.appendChild(questionBox); // เพิ่มกรอบใหญ่เข้าไปในระดับ
-    
-            levelWords.forEach(({ word, meaning }) => {
+            reviewContainer.appendChild(levelDiv);
+
+            levelWords.forEach(({ word, meaning, example, translation }) => {
                 const reviewBox = document.createElement('div');
                 reviewBox.className = 'review-box';
-                reviewBox.innerHTML = `<strong>${word}</strong><br>${meaning}`;
-                questionBox.appendChild(reviewBox); // เพิ่มกรอบเล็กเข้าไปในกรอบใหญ่
+                reviewBox.innerHTML = `<strong>${word}</strong><br>${meaning}<br><em>${example}</em><br><span class='translation'>${translation}</span>`;
+                
+                const audioButton = document.createElement('button');
+                audioButton.className = 'audio-button';
+                audioButton.textContent = '🔊';
+                audioButton.addEventListener('click', () => speakText(example));
+                
+                reviewBox.appendChild(audioButton);
+                levelDiv.appendChild(reviewBox);
             });
         });
-    
-        localStorage.setItem('isReviewing', 'true');
     }
     
 
@@ -519,5 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMusicHandlers();
     initialize();
     awardBadge(level); // ฟังก์ชันที่ให้เหรียญตรา
+    createVolumeControl(); // เรียกใช้ตัวควบคุมเสียงเมื่อโหลดเกม
+    gameAudio.play(); // เล่นเสียงเกมเมื่อเกมเริ่ม
 
 });
